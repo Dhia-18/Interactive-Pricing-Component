@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+  <link href="style/main.css" rel="stylesheet">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <script defer src="script.js"></script>
+  <title>Frontend Mentor | Interactive pricing component</title>
+</head>
+<body>
+  <header>
+    <h1>Simple, traffic-based pricing</h1>
+    <p>Sign-up for our 30-day trial. No credit card required.</p>
+  </header>
+  <main>
+    <h1><span id="pageviews">100K</span> PAGEVIEWS</h1>
+    <div class="slide-container">
+      <input class="slider" type="range" min="1" max="100" value="50">
+    </div>
+    <div class="price-container">
+      <h2 id="price">$16.00</h2>
+      <p>/ <span id="period">month</span></p>
+    </div>
+    <div class="select-container">
+      <p>Monthly Billing</p>
+      <label class="switch">
+        <input type="checkbox">
+        <span class="switch-slider"></span>
+      </label>
+      <p>Yearly Billing <span id="discount">-25% <span class="hidden">discount</span></span></p>
+    </div>
+    <hr>
+    <div class="advantages-container">
+      <div>
+        <img src="images/icon-check.svg">
+        <p>Unlimited websites</p>
+      </div>
+      <div>
+        <img src="images/icon-check.svg">
+        <p>100% data ownership</p>
+      </div>
+      <div>
+        <img src="images/icon-check.svg">
+        <p>Email reports</p>
+      </div>
+    </div>
+    <button type="submit">Start my trial</button>
+  </main>
+</body>
+</html>

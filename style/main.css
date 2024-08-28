@@ -1,0 +1,282 @@
+@import url("reset.css");
+
+:root{
+    --soft-cyan:hsl(174, 77%, 80%);
+    --strong-cyan:hsl(174, 86%, 45%);
+    --light-grayish-red:hsl(14, 92%, 95%);
+    --light-red:hsl(15, 100%, 70%);
+    --pale-blue:hsl(226, 100%, 87%);
+    --very-pale-blue:hsl(230, 100%, 99%);
+    --light-grayish-blue-1:hsl(224, 65%, 95%);
+    --light-grayish-blue-2:hsl(223, 50%, 87%);
+    --grayish-blue:hsl(225, 20%, 60%);
+    --dark-desaturated-blue:hsl(227, 35%, 25%);
+}
+
+*{
+    margin:0;
+    padding:0;
+    font-family: "Manrope";
+    font-size: 14px;
+    font-weight: 600;
+}
+
+body{
+    background-color: var(--very-pale-blue);
+    background-image: url("../images/bg-pattern.svg");
+    background-repeat: no-repeat;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:1.5rem;
+}
+
+/* Styling the header */
+
+header{
+    padding:3.5rem 2rem;
+
+    background-image: url("../images/pattern-circles.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap:0.5rem;
+}
+
+header h1{    
+    color:var(--dark-desaturated-blue);
+    font-size: clamp(20px, 5vw, 27px);
+    font-weight: 800;
+}
+
+header p{
+    color:var(--grayish-blue);
+    width: 60%;
+}
+
+@media screen and (min-width:50rem){
+    body{
+        gap:3rem;
+    }
+
+    header p{
+        width: 100%;
+    }
+}
+
+/* Styling the main */
+
+main{
+    padding:2rem 1.5rem;
+    width: 90%;
+    max-width: 35rem;
+
+    color:var(--grayish-blue);
+    background-color: white;
+    border-radius: 5px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:2rem;
+}
+
+hr{
+    width: calc(100% + 3rem);
+    opacity: 0.3;
+}
+
+main h1{
+    letter-spacing: 2px;
+}
+
+/* Styling the Range Sliding bar */
+
+.slide-container{
+    width: 100%;
+}
+
+.slider{
+    appearance: none;
+    width: 100%;
+    height: 8px;
+    background-image: linear-gradient(to right, var(--soft-cyan) 50% , var(--light-grayish-blue-1) 50%);
+    border-radius: 5px;
+}
+
+.slider::-webkit-slider-thumb{
+    cursor: pointer;
+    appearance: none;
+    width: 35px;
+    height: 35px;
+
+    background-image: url("../images/icon-slider.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: var(--strong-cyan);
+    border-radius: 50%;
+    box-shadow: 0px 20px 30px -2px var(--strong-cyan);
+}
+
+.slider::-webkit-slider-thumb:hover{
+    background-color: hsl(174, 86%, 35%);;
+}
+
+/* Styling the toggle switch */
+
+.switch{
+    position: relative;
+    width: 40px;
+    height: 22px;
+}
+
+.switch input{
+    appearance: none;
+}
+
+.switch-slider{
+    position: absolute;
+    cursor: pointer;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background-color: var(--light-grayish-blue-2);
+    transition: .4s;
+    border-radius: 20px;
+}
+
+.switch-slider::before{
+    position: absolute;
+    content: "";
+    height: 14px;
+    width: 14px;
+    left:4px;
+    bottom:4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .switch-slider{
+    background-color: #2196F3;
+}
+
+.input:focus + .switch-slider{
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .switch-slider::before{
+    transform: translateX(17px);
+}
+
+.switch-slider:hover{
+    background-color: var(--soft-cyan);
+}
+
+/* Styling the rest of the main */
+
+.price-container{
+    display: flex;
+    align-items: center;
+    gap:0.5rem;
+}
+
+#price{
+    color:var(--dark-desaturated-blue);
+    font-weight: 800;
+    font-size: clamp(30px,5vw,34px);
+}
+
+.select-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap:0.8rem;
+}
+
+#discount{
+    margin-left: 0.2rem;
+    padding:0 0.3rem;
+    color:var(--light-red);
+    background-color: var(--light-grayish-red);
+    border-radius: 20px;
+}
+
+.advantages-container div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:1rem;
+}
+
+button[type="submit"]{
+    cursor: pointer;
+    padding:0.9rem 3rem;
+
+    color:var(--pale-blue);
+    background-color: var(--dark-desaturated-blue);
+    border:none;
+    border-radius: 25px;
+}
+
+button[type="submit"]:hover{
+    color:white;
+}
+
+.hidden{
+    display: none;
+}
+
+@media screen and (min-width:50rem) {
+    main{
+        padding:4rem 3rem;
+
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: 
+            'pageviews price'
+            'slider slider'
+            'selection selection'
+            'hr hr'
+            'advantages button';
+    }
+
+    .price-container{
+        grid-area: price;
+    }
+
+    .slide-container{
+        grid-area: slider;
+    }
+
+    .select-container{
+        margin-left: 2rem;
+        grid-area: selection;
+        justify-content: center;
+    }
+
+    .hidden{
+        display: inline-block;
+    }
+
+    hr{
+        grid-area: hr;
+        justify-self: center;
+        width: calc(100% + 6rem);
+    }
+
+    .advantages-container div{
+        justify-content:left;
+    }
+
+    button[type="submit"]{
+        justify-self: right;
+    }
+}
